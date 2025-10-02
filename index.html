@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="서대전여자고등학교 - 너의 미래가 시작되는 곳. 우수한 진학 실적과 다양한 교육 프로그램으로 꿈을 이루는 학교">
+    <meta name="keywords" content="서대전여고, 서대전여자고등학교, 대전여고, 고교학점제, 과학중점학급">
+    <title>서대전여자고등학교 | 너의 미래가 시작되는 곳</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-stone-50 text-gray-800">
+
+    <!-- Header Navigation -->
+    <header class="bg-white/90 backdrop-blur-xl sticky top-0 z-50 shadow-lg border-b border-purple-100">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3 group">
+                <img src="logo/sdjgh_logo.png" alt="서대전여고 로고" class="h-12 w-12 transition-transform group-hover:scale-110">
+                <span class="text-xl font-black gradient-text">서대전여자고등학교</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#dashboard" class="nav-item text-gray-700 font-semibold">우리의 성과</a>
+                <a href="#curriculum" class="nav-item text-gray-700 font-semibold">너의 미래</a>
+                <a href="#school-life" class="nav-item text-gray-700 font-semibold">즐거운 학교생활</a>
+                <a href="#faq" class="nav-item text-gray-700 font-semibold">선배들의 Q&A</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none p-2 rounded-lg hover:bg-purple-50 transition">
+                <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-purple-100">
+            <a href="#dashboard" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">우리의 성과</a>
+            <a href="#curriculum" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">너의 미래</a>
+            <a href="#school-life" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">즐거운 학교생활</a>
+            <a href="#faq" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">선배들의 Q&A</a>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg min-h-screen flex items-center justify-center text-center">
+            <div class="container mx-auto px-6 py-20">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black hero-text mb-6 fade-in">서대전여고에서, <br>너의 가장 빛나는 색을 찾아봐!</h1>
+                <p class="text-lg md:text-2xl text-white/90 mb-10 fade-in font-medium" style="animation-delay: 0.2s;">꿈을 향한 너의 모든 가능성이 이곳에서 시작됩니다.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in" style="animation-delay: 0.4s;">
+                    <button class="btn-gradient text-white font-bold py-4 px-10 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 text-lg">홍보 영상 보기 🎬</button>
+                    <button class="glass-card text-white font-bold py-4 px-10 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 text-lg">학교 생활 웹툰 🎨</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section - 대학 합격 현황 -->
+        <section id="dashboard" class="py-20 bg-gradient-to-b from-white to-stone-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl md:text-5xl font-black gradient-text mb-4">데이터로 증명하는 우리의 성과</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">서대전여고는 단순한 지식을 넘어, 학생들이 원하는 미래로 나아갈 수 있도록 최상의 교육 환경과 진학 로드맵을 제공합니다. 선배들의 눈부신 성과를 통해 여러분의 미래를 그려보세요.</p>
+                </div>
+
+                <!-- 통계 하이라이트 카드 -->
+                <div class="grid md:grid-cols-3 gap-6 mb-12 fade-in">
+                    <div class="stat-card text-center">
+                        <div class="stat-number">105명</div>
+                        <p class="text-white/90 text-lg mt-2">수도권 주요대학 합격</p>
+                        <p class="text-white/70 text-sm mt-1">(2025년 기준)</p>
+                    </div>
+                    <div class="stat-card text-center" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="stat-number">22명</div>
+                        <p class="text-white/90 text-lg mt-2">의·치·약·한·수 합격</p>
+                        <p class="text-white/70 text-sm mt-1">(2025년 기준)</p>
+                    </div>
+                    <div class="stat-card text-center" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="stat-number">70명</div>
+                        <p class="text-white/90 text-lg mt-2">주요 국립대학 합격</p>
+                        <p class="text-white/70 text-sm mt-1">(2025년 기준)</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/70 backdrop-blur-lg p-8 md:p-10 rounded-3xl shadow-2xl fade-in border border-white/20">
+                    <div class="flex flex-wrap justify-center gap-4 mb-8">
+                        <button class="filter-btn bg-red-500 text-white py-3 px-6 rounded-full font-semibold shadow-lg" data-target="all">전체</button>
+                        <button class="filter-btn bg-white text-gray-700 py-3 px-6 rounded-full font-semibold shadow-md" data-target="seoul">수도권 주요대학</button>
+                        <button class="filter-btn bg-white text-gray-700 py-3 px-6 rounded-full font-semibold shadow-md" data-target="medical">의·치·약·한·수</button>
+                        <button class="filter-btn bg-white text-gray-700 py-3 px-6 rounded-full font-semibold shadow-md" data-target="national">주요 국립대학</button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="admissionsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curriculum Section - 교육과정 -->
+        <section id="curriculum" class="py-20 bg-gradient-to-b from-stone-50 to-white relative">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl md:text-5xl font-black gradient-text mb-4">스스로 디자인하는 너의 미래</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">고교학점제 선도학교, 서대전여고에서는 정해진 길이 아닌 나만의 길을 만들 수 있습니다. 다양한 선택과목과 특색 프로그램을 통해 당신의 잠재력을 마음껏 펼쳐보세요.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 text-center fade-in">
+                    <div class="curriculum-card">
+                        <div class="text-6xl mb-6 floating">💡</div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text">맞춤형 교육과정</h3>
+                        <p class="text-gray-600 leading-relaxed">인문, 사회, 자연, 공학, 예체능까지. 너의 진로에 맞춘 과목을 직접 선택하고 조합하며 자신만의 시간표를 완성해요.</p>
+                    </div>
+                    <div class="curriculum-card">
+                        <div class="text-6xl mb-6 floating" style="animation-delay: 0.2s;">🔬</div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text">과학중점학급 운영</h3>
+                        <p class="text-gray-600 leading-relaxed">심화 과학실험, 과제연구, R&E 활동 등 이공계열 진로를 꿈꾸는 학생들을 위한 전문적이고 체계적인 프로그램을 제공합니다.</p>
+                    </div>
+                    <div class="curriculum-card">
+                        <div class="text-6xl mb-6 floating" style="animation-delay: 0.4s;">🌐</div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text">글로벌 리더 양성</h3>
+                        <p class="text-gray-600 leading-relaxed">제2외국어 심화 과정, 국제 교류 프로그램, 모의 UN 등 세계를 무대로 꿈을 펼칠 수 있는 다양한 기회가 열려있어요.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- School Life Section - 학교생활 -->
+        <section id="school-life" class="py-20 bg-gradient-to-b from-white to-stone-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl md:text-5xl font-black gradient-text mb-4">함께라서 더 즐거운 학교생활</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">열정적인 동아리 활동, 모두가 하나 되는 축제, 그리고 맛있는 점심시간까지! 서대전여고의 하루하루는 특별한 추억으로 가득합니다.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16 items-start">
+                    <div class="fade-in">
+                        <div class="flex items-center mb-6">
+                            <span class="text-4xl mr-3">🌟</span>
+                            <h3 class="text-3xl font-bold gradient-text">60여 개의 다채로운 동아리</h3>
+                        </div>
+                        <p class="text-gray-600 mb-8 text-lg leading-relaxed">방송부, 오케스트라, 과학실험, 토론, 봉사 동아리 등 관심사와 진로에 따라 원하는 활동을 마음껏 즐길 수 있습니다. 최고의 시설에서 친구들과 함께 꿈을 키워나가세요.</p>
+                        <div class="card-carousel pb-6">
+                            <div class="card bg-gradient-to-br from-red-100 to-pink-100 p-8 rounded-2xl shadow-xl border-2 border-white">
+                                <div class="text-3xl mb-3">📻</div>
+                                <h4 class="font-bold text-red-800 text-xl mb-2">SDBS 방송부</h4>
+                                <p class="text-sm text-red-700 leading-relaxed">학교의 모든 소식을 전하는 목소리! PD, 아나운서, 엔지니어의 꿈을 키워요.</p>
+                            </div>
+                            <div class="card bg-gradient-to-br from-yellow-100 to-orange-100 p-8 rounded-2xl shadow-xl border-2 border-white">
+                                <div class="text-3xl mb-3">🎻</div>
+                                <h4 class="font-bold text-yellow-800 text-xl mb-2">필하모닉 오케스트라</h4>
+                                <p class="text-sm text-yellow-700 leading-relaxed">아름다운 선율로 하나되는 시간. 정기 연주회로 감동의 무대를 만들어요.</p>
+                            </div>
+                            <div class="card bg-gradient-to-br from-blue-100 to-cyan-100 p-8 rounded-2xl shadow-xl border-2 border-white">
+                                <div class="text-3xl mb-3">🧪</div>
+                                <h4 class="font-bold text-blue-800 text-xl mb-2">사이언스 팩토리</h4>
+                                <p class="text-sm text-blue-700 leading-relaxed">교과서 밖 세상을 탐구하는 과학실험 동아리. 과학 축제를 직접 기획해요.</p>
+                            </div>
+                            <div class="card bg-gradient-to-br from-green-100 to-emerald-100 p-8 rounded-2xl shadow-xl border-2 border-white">
+                                <div class="text-3xl mb-3">💬</div>
+                                <h4 class="font-bold text-green-800 text-xl mb-2">영어 토론 동아리</h4>
+                                <p class="text-sm text-green-700 leading-relaxed">논리적인 사고와 유창한 영어 실력, 두 마리 토끼를 잡는 최고의 선택!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <div class="flex items-center mb-6">
+                            <span class="text-4xl mr-3">🍱</span>
+                            <h3 class="text-3xl font-bold gradient-text">자랑하고 싶은 우리 학교 급식</h3>
+                        </div>
+                        <p class="text-gray-600 mb-8 text-lg leading-relaxed">영양과 맛을 모두 잡은 서대전여고의 명품 급식! 매일매일이 기대되는 점심시간은 학업 스트레스를 날려주는 최고의 활력소입니다.</p>
+                        <div class="food-grid grid grid-cols-2 gap-4">
+                            <img src="https://placehold.co/400x300/F9A8D4/FFFFFF?text=Spaghetti" alt="급식 사진 1" class="rounded-2xl shadow-lg w-full h-48 object-cover">
+                            <img src="https://placehold.co/400x300/A5B4FC/FFFFFF?text=Steak+Rice" alt="급식 사진 2" class="rounded-2xl shadow-lg w-full h-48 object-cover">
+                            <img src="https://placehold.co/400x300/FBBF24/FFFFFF?text=Pork+Cutlet" alt="급식 사진 3" class="rounded-2xl shadow-lg w-full h-48 object-cover">
+                            <img src="https://placehold.co/400x300/6EE7B7/FFFFFF?text=Salad+Bar" alt="급식 사진 4" class="rounded-2xl shadow-lg w-full h-48 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-gradient-to-b from-stone-50 to-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl md:text-5xl font-black gradient-text mb-4">선배들이 직접 답해줄게!</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">서대전여고에 대해 궁금한 점이 많죠? 여러분이 가장 궁금해하는 질문들을 모아 선배들이 직접 솔직하게 답변해 드립니다.</p>
+                </div>
+                <div class="max-w-4xl mx-auto space-y-5 fade-in">
+                    <div class="faq-item bg-white rounded-2xl shadow-md">
+                        <button class="faq-question w-full text-left p-6 md:p-8 flex justify-between items-center">
+                            <span class="font-bold text-lg md:text-xl pr-4">Q. 여고라서 분위기가 너무 무서울 것 같아요.</span>
+                            <span class="faq-arrow text-3xl font-light transform transition-transform text-purple-600">+</span>
+                        </button>
+                        <div class="faq-answer hidden p-6 md:p-8 pt-0 text-gray-600 text-base md:text-lg leading-relaxed">
+                            <p><strong class="gradient-text">A.</strong> 전혀 그렇지 않아요! 오히려 서로 더 잘 챙겨주고 공감대도 커서 금방 친해질 수 있어요. 다 같이 으쌰으쌰 공부하고, 축제나 체육대회 때는 단합이 정말 잘 된답니다! 선후배 관계도 돈독해서 학교 생활 꿀팁도 많이 얻을 수 있어요.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-white rounded-2xl shadow-md">
+                        <button class="faq-question w-full text-left p-6 md:p-8 flex justify-between items-center">
+                            <span class="font-bold text-lg md:text-xl pr-4">Q. 교복이나 두발 규정은 어떤가요?</span>
+                            <span class="faq-arrow text-3xl font-light transform transition-transform text-purple-600">+</span>
+                        </button>
+                        <div class="faq-answer hidden p-6 md:p-8 pt-0 text-gray-600 text-base md:text-lg leading-relaxed">
+                            <p><strong class="gradient-text">A.</strong> 우리 학교 교복 정말 예쁘기로 유명해요! 편하고 예쁜 생활복도 있어서 인기가 많아요. 두발 규정은 염색이나 과도한 파마는 안 되지만, 기본적인 선에서는 자유로운 편이라 자신만의 개성을 표현하기에 충분해요.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-white rounded-2xl shadow-md">
+                        <button class="faq-question w-full text-left p-6 md:p-8 flex justify-between items-center">
+                            <span class="font-bold text-lg md:text-xl pr-4">Q. 내신 경쟁이 너무 치열하지는 않을까요?</span>
+                            <span class="faq-arrow text-3xl font-light transform transition-transform text-purple-600">+</span>
+                        </button>
+                        <div class="faq-answer hidden p-6 md:p-8 pt-0 text-gray-600 text-base md:text-lg leading-relaxed">
+                            <p><strong class="gradient-text">A.</strong> 공부 잘하는 친구들이 많은 건 사실이지만, 그만큼 면학 분위기가 잘 조성되어 있다는 뜻이기도 해요. 서로 질문하고 알려주면서 함께 성장하는 분위기예요. 선생님들도 열정적으로 가르쳐주시고, 방과후 수업이나 심화반 프로그램이 잘 되어 있어서 따라가기 어렵지 않을 거예요!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h3 class="text-3xl md:text-4xl font-black mb-4">서대전여자고등학교에서 너의 꿈을 펼쳐봐!</h3>
+            <p class="mb-8 text-lg text-gray-300">더 자세한 학교 생활이 궁금하다면 공식 블로그를 방문해주세요.</p>
+            <button class="btn-gradient text-white font-bold py-4 px-10 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 text-lg mb-8">학교 공식 블로그 바로가기</button>
+            <div class="mt-12 pt-8 border-t border-white/20">
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-4 text-gray-300">
+                    <p>📍 대전광역시 서구 계룡로 585번길 55</p>
+                    <span class="hidden md:inline">|</span>
+                    <p>📞 학교 대표 전화: 042-XXX-XXXX</p>
+                </div>
+                <p class="text-gray-400 text-sm">&copy; 2025 Seodaejeon Girls' High School. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+
