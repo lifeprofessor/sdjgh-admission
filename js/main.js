@@ -288,6 +288,108 @@ function initHeaderScroll() {
     });
 }
 
+// 이미지 로딩 처리
+function initImageLoading() {
+    const foodImages = document.querySelectorAll('.food-item img');
+    
+    foodImages.forEach(img => {
+        // 이미지 로딩 시작 시 로딩 애니메이션 추가
+        img.addEventListener('loadstart', () => {
+            img.style.opacity = '0.7';
+        });
+        
+        // 이미지 로딩 완료 시
+        img.addEventListener('load', () => {
+            img.style.opacity = '1';
+            img.style.background = 'none';
+            img.style.animation = 'none';
+        });
+        
+        // 이미지 로딩 실패 시
+        img.addEventListener('error', () => {
+            img.style.display = 'none';
+            const fallback = img.nextElementSibling;
+            if (fallback) {
+                fallback.style.display = 'flex';
+            }
+        });
+    });
+}
+
+// 동아리 탭 필터링
+function initClubTabs() {
+    const clubTabs = document.querySelectorAll('.club-tab');
+    const clubCards = document.querySelectorAll('.club-card');
+    
+    // 초기 로드 시 이과/과학 카테고리만 표시
+    function showCategory(category) {
+        clubCards.forEach(card => {
+            if (category === 'all' || card.classList.contains(category)) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeInUp 0.5s ease-out';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    
+    // 페이지 로드 시 이과/과학만 표시
+    showCategory('science');
+    
+    clubTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const category = tab.dataset.category;
+            
+            // 탭 스타일 업데이트
+            clubTabs.forEach(t => {
+                t.classList.remove('active', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600', 'text-white', 'shadow-lg');
+                t.classList.add('bg-white', 'text-gray-700', 'hover:bg-gray-100', 'shadow-md');
+            });
+            
+            tab.classList.add('active', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600', 'text-white', 'shadow-lg');
+            tab.classList.remove('bg-white', 'text-gray-700', 'hover:bg-gray-100', 'shadow-md');
+            
+            // 카드 필터링
+            showCategory(category);
+        });
+    });
+}
+
+// 이미지 모달 기능
+function openImageModal(imageSrc, imageAlt) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    
+    modalImage.src = imageSrc;
+    modalImage.alt = imageAlt;
+    modal.classList.remove('hidden');
+    
+    // 스크롤 방지
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.add('hidden');
+    
+    // 스크롤 복원
+    document.body.style.overflow = 'auto';
+}
+
+// ESC 키로 모달 닫기
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeImageModal();
+    }
+});
+
+// 모달 배경 클릭 시 닫기
+document.getElementById('imageModal').addEventListener('click', (e) => {
+    if (e.target.id === 'imageModal') {
+        closeImageModal();
+    }
+});
+
 // 페이지 로드 시 초기화
 document.addEventListener('DOMContentLoaded', () => {
     // 모든 기능 초기화
@@ -298,6 +400,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimation();
     initNavigation();
     initHeaderScroll();
+    initImageLoading();
+    initClubTabs();
 
     // Hero 섹션 즉시 표시
     const heroElements = document.querySelector('.hero-bg').querySelectorAll('.fade-in');
