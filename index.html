@@ -15,7 +15,6 @@
     
     <!-- External Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
     
     <!-- Custom Styles -->
@@ -31,7 +30,6 @@
                 <span class="text-xl font-black gradient-text">서대전여자고등학교</span>
             </a>
             <div class="hidden md:flex space-x-8">
-                <a href="#dashboard" class="nav-item text-gray-700 font-semibold">우리의 성과</a>
                 <a href="#curriculum" class="nav-item text-gray-700 font-semibold">너의 미래</a>
                 <a href="#clubs" class="nav-item text-gray-700 font-semibold">동아리 활동</a>
                 <a href="#places" class="nav-item text-gray-700 font-semibold">학교 공간</a>
@@ -45,7 +43,6 @@
             </button>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-purple-100">
-            <a href="#dashboard" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">우리의 성과</a>
             <a href="#curriculum" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">너의 미래</a>
             <a href="#clubs" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">동아리 활동</a>
             <a href="#places" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">학교 공간</a>
@@ -63,47 +60,6 @@
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in" style="animation-delay: 0.4s;">
                     <button class="btn-gradient text-white font-bold py-4 px-10 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 text-lg">홍보 영상 보기 🎬</button>
                     <button class="glass-card text-white font-bold py-4 px-10 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 text-lg">학교 생활 웹툰 🎨</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Dashboard Section - 대학 합격 현황 -->
-        <section id="dashboard" class="py-20 bg-gradient-to-b from-white to-stone-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16 fade-in">
-                    <h2 class="text-3xl md:text-5xl font-black gradient-text mb-4">데이터로 증명하는 우리의 성과</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">서대전여고는 단순한 지식을 넘어, 학생들이 원하는 미래로 나아갈 수 있도록 최상의 교육 환경과 진학 로드맵을 제공합니다. 선배들의 눈부신 성과를 통해 여러분의 미래를 그려보세요.</p>
-                </div>
-
-                <!-- 통계 하이라이트 카드 -->
-                <div class="grid md:grid-cols-3 gap-6 mb-12 fade-in">
-                    <div class="stat-card text-center">
-                        <div class="stat-number">105명</div>
-                        <p class="text-white/90 text-lg mt-2">수도권 주요대학 합격</p>
-                        <p class="text-white/70 text-sm mt-1">(2025년 기준)</p>
-                    </div>
-                    <div class="stat-card text-center" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <div class="stat-number">22명</div>
-                        <p class="text-white/90 text-lg mt-2">의·치·약·한·수 합격</p>
-                        <p class="text-white/70 text-sm mt-1">(2025년 기준)</p>
-                    </div>
-                    <div class="stat-card text-center" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <div class="stat-number">70명</div>
-                        <p class="text-white/90 text-lg mt-2">주요 국립대학 합격</p>
-                        <p class="text-white/70 text-sm mt-1">(2025년 기준)</p>
-                    </div>
-                </div>
-
-                <div class="bg-white/70 backdrop-blur-lg p-8 md:p-10 rounded-3xl shadow-2xl fade-in border border-white/20">
-                    <div class="flex flex-wrap justify-center gap-4 mb-8">
-                        <button class="filter-btn bg-red-500 text-white py-3 px-6 rounded-full font-semibold shadow-lg" data-target="all">전체</button>
-                        <button class="filter-btn bg-white text-gray-700 py-3 px-6 rounded-full font-semibold shadow-md" data-target="seoul">수도권 주요대학</button>
-                        <button class="filter-btn bg-white text-gray-700 py-3 px-6 rounded-full font-semibold shadow-md" data-target="medical">의·치·약·한·수</button>
-                        <button class="filter-btn bg-white text-gray-700 py-3 px-6 rounded-full font-semibold shadow-md" data-target="national">주요 국립대학</button>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="admissionsChart"></canvas>
-                    </div>
                 </div>
             </div>
         </section>
@@ -336,7 +292,7 @@
                         <!-- 도서관 -->
                         <div class="place-item group cursor-pointer" onclick="window.open('https://m.blog.naver.com/PostView.naver?blogId=sdjh_school&logNo=223663848343&navType=by', '_blank')">
                             <div class="relative rounded-2xl shadow-lg w-full h-48 md:h-56 overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100">
-                                <img src="images/장소_도서관.jpg" 
+                                <img src="images/place_library.jpg" 
                                      alt="서대전여고 도서관" 
                                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -359,7 +315,7 @@
                         <!-- 매점 -->
                         <div class="place-item group cursor-pointer" onclick="window.open('https://m.blog.naver.com/PostView.naver?blogId=sdjh_school&logNo=223900188657&navType=by', '_blank')">
                             <div class="relative rounded-2xl shadow-lg w-full h-48 md:h-56 overflow-hidden bg-gradient-to-br from-green-100 to-emerald-100">
-                                <img src="images/장소_매점.jpg" 
+                                <img src="images/place_store.jpg" 
                                      alt="서대전여고 매점" 
                                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -382,7 +338,7 @@
                         <!-- 비전관 -->
                         <div class="place-item group cursor-pointer" onclick="window.open('https://m.blog.naver.com/PostView.naver?blogId=sdjh_school&logNo=223624940213&navType=by', '_blank')">
                             <div class="relative rounded-2xl shadow-lg w-full h-48 md:h-56 overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100">
-                                <img src="images/장소_비전관.jpg" 
+                                <img src="images/place_vision.jpg" 
                                      alt="서대전여고 비전관" 
                                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -405,7 +361,7 @@
                         <!-- 휴식공간 -->
                         <div class="place-item group cursor-pointer" onclick="window.open('https://m.blog.naver.com/PostView.naver?blogId=sdjh_school&logNo=223663844892&navType=by', '_blank')">
                             <div class="relative rounded-2xl shadow-lg w-full h-48 md:h-56 overflow-hidden bg-gradient-to-br from-yellow-100 to-orange-100">
-                                <img src="images/장소_휴식공간.jpg" 
+                                <img src="images/place_rest.jpg" 
                                      alt="서대전여고 휴식공간" 
                                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
