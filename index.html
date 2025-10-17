@@ -34,6 +34,7 @@
                 <a href="#clubs" class="nav-item text-gray-700 font-semibold">동아리 활동</a>
                 <a href="#places" class="nav-item text-gray-700 font-semibold">학교 공간</a>
                 <a href="#meals" class="nav-item text-gray-700 font-semibold">학교 급식</a>
+                <a href="#news" class="nav-item text-gray-700 font-semibold">뉴스</a>
                 <a href="#faq" class="nav-item text-gray-700 font-semibold">선배들의 Q&A</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden focus:outline-none p-2 rounded-lg hover:bg-purple-50 transition">
@@ -47,6 +48,7 @@
             <a href="#clubs" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">동아리 활동</a>
             <a href="#places" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">학교 공간</a>
             <a href="#meals" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">학교 급식</a>
+            <a href="#news" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">뉴스</a>
             <a href="#faq" class="block py-3 px-6 text-base font-semibold hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition">선배들의 Q&A</a>
         </div>
     </header>
@@ -58,21 +60,21 @@
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-black hero-text mb-6 fade-in">서대전여고에서, <br>너의 가장 빛나는 색을 찾아봐!</h1>
                 <p class="text-lg md:text-2xl text-white/90 mb-10 fade-in font-medium" style="animation-delay: 0.2s;">꿈을 향한 너의 모든 가능성이 이곳에서 시작됩니다.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in" style="animation-delay: 0.4s;">
-                    <button class="btn-gradient text-white font-bold py-4 px-10 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 text-lg">홍보 영상 보기 🎬</button>
-                    <button class="glass-card text-white font-bold py-4 px-10 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 text-lg">학교 생활 웹툰 🎨</button>
+                    <button onclick="openVideoModal()" class="btn-gradient text-white font-bold py-4 px-10 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 text-lg">홍보 영상 보기 🎬</button>
+                    <button class="bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold py-4 px-10 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 text-lg hover:from-red-600 hover:to-pink-600">학교 생활 웹툰 🎨</button>
                 </div>
             </div>
         </section>
 
         <!-- Curriculum Section - 교육과정 -->
-        <section id="curriculum" class="py-20 bg-gradient-to-b from-stone-50 to-white relative">
+        <section id="curriculum" class="py-20 bg-gradient-to-b from-blue-50 to-indigo-50 relative">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 fade-in">
-                    <h2 class="text-3xl md:text-5xl font-black gradient-text mb-4">스스로 디자인하는 너의 미래</h2>
+                    <h2 class="text-2xl md:text-5xl font-black gradient-text mb-4">스스로 디자인하는 너의 미래</h2>
                     <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">고교학점제 선도학교, 서대전여고에서는 정해진 길이 아닌 나만의 길을 만들 수 있습니다. 다양한 선택과목과 특색 프로그램을 통해 당신의 잠재력을 마음껏 펼쳐보세요.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-3 gap-8 text-center fade-in">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 text-center fade-in">
                     <div class="curriculum-card">
                         <div class="text-6xl mb-6 floating">💡</div>
                         <h3 class="text-2xl font-bold mb-4 gradient-text">맞춤형 교육과정</h3>
@@ -84,19 +86,19 @@
                         <p class="text-gray-600 leading-relaxed">심화 과학실험, 과제연구, R&E 활동 등 이공계열 진로를 꿈꾸는 학생들을 위한 전문적이고 체계적인 프로그램을 제공합니다.</p>
                     </div>
                     <div class="curriculum-card">
-                        <div class="text-6xl mb-6 floating" style="animation-delay: 0.4s;">🌐</div>
-                        <h3 class="text-2xl font-bold mb-4 gradient-text">글로벌 리더 양성</h3>
-                        <p class="text-gray-600 leading-relaxed">제2외국어 심화 과정, 국제 교류 프로그램, 모의 UN 등 세계를 무대로 꿈을 펼칠 수 있는 다양한 기회가 열려있어요.</p>
+                        <div class="text-6xl mb-6 floating" style="animation-delay: 0.4s;">🤖</div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text">인공지능 리더 양성</h3>
+                        <p class="text-gray-600 leading-relaxed">인공지능 기초 과목 운영과 다양한 로봇을 활용한 실습으로 직접 코딩을 체험할 수 있어요. 미래 사회의 핵심 기술을 선도하는 AI 전문가로 성장하세요.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Clubs Section - 동아리 활동 -->
-        <section id="clubs" class="py-20 bg-gradient-to-b from-white to-stone-50">
+        <section id="clubs" class="py-20 bg-gradient-to-b from-purple-50 to-pink-50">
             <div class="container mx-auto px-4 sm:px-6">
                 <div class="text-center mb-12 fade-in">
-                    <h2 class="text-3xl md:text-5xl font-black gradient-text mb-4">29개의 다채로운 창체동아리</h2>
+                    <h2 class="text-2xl md:text-5xl font-black gradient-text mb-4">29개의 다채로운 창체동아리</h2>
                     <p class="text-gray-600 mt-4 max-w-3xl mx-auto text-base md:text-lg">이과, 문과, 예체능 등 다양한 분야의 동아리로 나뉘며, 자신의 진로와 관련된 분야를 선택해 활동할 수 있어 진로 탐색에 더 도움을 받을 수 있습니다. 금요일 7교시에 1시간씩 진행됩니다.</p>
                 </div>
 
@@ -104,7 +106,7 @@
                 <div class="fade-in mb-8">
                     <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8">
                         <button class="club-tab active px-4 py-2 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg" data-category="science">
-                            이과/과학 (7개)
+                            이과/과학 (6개)
                         </button>
                         <button class="club-tab px-4 py-2 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-white text-gray-700 hover:bg-gray-100 shadow-md" data-category="liberal">
                             문과/사회 (7개)
@@ -112,9 +114,8 @@
                         <button class="club-tab px-4 py-2 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-white text-gray-700 hover:bg-gray-100 shadow-md" data-category="arts">
                             예체능 (7개)
                         </button>
-                        <br>
                         <button class="club-tab px-4 py-2 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-white text-gray-700 hover:bg-gray-100 shadow-md" data-category="tech">
-                            기술/IT (3개)
+                            기술/IT (4개)
                         </button>
                         <button class="club-tab px-4 py-2 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 bg-white text-gray-700 hover:bg-gray-100 shadow-md" data-category="welfare">
                             의료/복지 (3개)
@@ -153,11 +154,6 @@
                             <div class="text-3xl mb-3">⚡</div>
                             <h4 class="font-bold text-cyan-800 text-lg mb-2">파이시스</h4>
                             <p class="text-sm text-cyan-700 leading-relaxed">물리탐구 실험을 주로 진행하는 동아리로 전자주사현미경 사용 활동, 아두이노 활용 활동 등을 합니다.</p>
-                        </div>
-                        <div class="club-card science bg-gradient-to-br from-indigo-100 to-purple-100 p-6 rounded-2xl shadow-lg border-2 border-white hover:shadow-xl transition-all duration-300">
-                            <div class="text-3xl mb-3">🎨</div>
-                            <h4 class="font-bold text-indigo-800 text-lg mb-2">바림</h4>
-                            <p class="text-sm text-indigo-700 leading-relaxed">그림을 그리면서 덕질 얘기하는 동아리입니다. 굿즈 제작, 캐릭터 디자인 후 자기 진로와 관련된 연계활동을 합니다.</p>
                         </div>
 
                         <!-- 문과/사회 분야 -->
@@ -198,6 +194,11 @@
                         </div>
 
                         <!-- 예체능 분야 -->
+                        <div class="club-card arts bg-gradient-to-br from-indigo-100 to-purple-100 p-6 rounded-2xl shadow-lg border-2 border-white hover:shadow-xl transition-all duration-300">
+                            <div class="text-3xl mb-3">🎨</div>
+                            <h4 class="font-bold text-indigo-800 text-lg mb-2">바림</h4>
+                            <p class="text-sm text-indigo-700 leading-relaxed">그림을 그리면서 덕질 얘기하는 동아리입니다. 굿즈 제작, 캐릭터 디자인 후 자기 진로와 관련된 연계활동을 합니다.</p>
+                        </div>
                         <div class="club-card arts bg-gradient-to-br from-pink-100 to-rose-100 p-6 rounded-2xl shadow-lg border-2 border-white hover:shadow-xl transition-all duration-300">
                             <div class="text-3xl mb-3">💃</div>
                             <h4 class="font-bold text-pink-800 text-lg mb-2">업텐션</h4>
@@ -212,11 +213,6 @@
                             <div class="text-3xl mb-3">💻</div>
                             <h4 class="font-bold text-blue-800 text-lg mb-2">플래시백</h4>
                             <p class="text-sm text-blue-700 leading-relaxed">협업 프로젝트 및 실습 위주의 활동을 하고 활발한 창작교류 분위기를 지향하며 넓은 장르를 아우르는 디자인 동아리입니다.</p>
-                        </div>
-                        <div class="club-card arts bg-gradient-to-br from-green-100 to-emerald-100 p-6 rounded-2xl shadow-lg border-2 border-white hover:shadow-xl transition-all duration-300">
-                            <div class="text-3xl mb-3">🎥</div>
-                            <h4 class="font-bold text-green-800 text-lg mb-2">아화</h4>
-                            <p class="text-sm text-green-700 leading-relaxed">학교 행사 브이로그 영상 촬영 등 다양한 분야의 영상 제작 활동을 하는 마케팅/영상 제작 동아리입니다.</p>
                         </div>
                         <div class="club-card arts bg-gradient-to-br from-yellow-100 to-orange-100 p-6 rounded-2xl shadow-lg border-2 border-white hover:shadow-xl transition-all duration-300">
                             <div class="text-3xl mb-3">💄</div>
@@ -235,6 +231,11 @@
                         </div>
 
                         <!-- 기술/IT 분야 -->
+                        <div class="club-card tech bg-gradient-to-br from-green-100 to-emerald-100 p-6 rounded-2xl shadow-lg border-2 border-white hover:shadow-xl transition-all duration-300">
+                            <div class="text-3xl mb-3">🎥</div>
+                            <h4 class="font-bold text-green-800 text-lg mb-2">아화</h4>
+                            <p class="text-sm text-green-700 leading-relaxed">학교 행사 브이로그 영상 촬영 등 다양한 분야의 영상 제작 활동을 하는 마케팅/영상 제작 동아리입니다.</p>
+                        </div>
                         <div class="club-card tech bg-gradient-to-br from-cyan-100 to-blue-100 p-6 rounded-2xl shadow-lg border-2 border-white hover:shadow-xl transition-all duration-300">
                             <div class="text-3xl mb-3">💻</div>
                             <h4 class="font-bold text-cyan-800 text-lg mb-2">픽사</h4>
@@ -280,11 +281,11 @@
         </section>
 
         <!-- School Places Section - 학교 주요 공간 -->
-        <section id="places" class="py-20 bg-gradient-to-b from-white to-stone-50">
+        <section id="places" class="py-20 bg-gradient-to-b from-green-50 to-emerald-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 fade-in">
-                    <h2 class="text-3xl md:text-5xl font-black gradient-text mb-4">서대전여고의 특별한 공간들</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">학습과 휴식, 소통이 어우러지는 우리 학교의 아름다운 공간들을 만나보세요. 각 공간마다 학생들의 꿈과 추억이 가득합니다.</p>
+                    <h2 class="text-2xl md:text-5xl font-black gradient-text mb-4">서대전여고의 특별한 공간들</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">학습과 휴식, 소통이 어우러지는 우리 학교의 아름다운 공간들을 만나보세요.<br>각 공간마다 학생들의 꿈과 추억이 가득합니다.</p>
                 </div>
 
                 <div class="fade-in">
@@ -386,28 +387,28 @@
         </section>
 
         <!-- School Meals Section - 학교 급식 -->
-        <section id="meals" class="py-20 bg-gradient-to-b from-stone-50 to-white">
+        <section id="meals" class="py-20 bg-gradient-to-b from-orange-50 to-yellow-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 fade-in">
-                    <h2 class="text-3xl md:text-5xl font-black gradient-text mb-4">자랑하고 싶은 우리 학교 급식</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">영양과 맛을 모두 잡은 서대전여고의 명품 급식! 매일매일이 기대되는 점심시간은 학업 스트레스를 날려주는 최고의 활력소입니다.</p>
+                    <h2 class="text-2xl md:text-5xl font-black gradient-text mb-4">자랑하고 싶은 우리 학교 급식</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">영양과 맛을 모두 잡은 서대전여고의 명품 급식!<br>매일매일이 기대되는 점심시간은<br>학업 스트레스를 날려주는 최고의 활력소입니다.</p>
                 </div>
 
                 <div class="fade-in">
                     <!-- 급식사진방 바로가기 버튼 -->
                     <div class="text-center mb-8">
                         <button onclick="window.open('https://seodaejeonhs.djsch.kr/boardCnts/list.do?boardID=54773&m=0403&s=seodaejonhs', '_blank')" class="btn-gradient text-white font-bold py-4 px-10 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 text-lg mb-4">
-                            급식사진방 바로가기 📸
+                            더 많은 급식 메뉴 구경하기 🍽️✨
                         </button>
-                        <p class="text-gray-600 text-sm">매일 업데이트되는 다양한 급식 메뉴를 확인해보세요!</p>
+                        <p class="text-gray-600 text-sm">한식, 양식, 중식, 일식까지! <br>매일 새로운 메뉴로 가득한 급식 갤러리를 탐험해보세요 🌟</p>
                     </div>
 
                     <div class="food-grid grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
                         <div class="food-item group cursor-pointer" onclick="openImageModal('images/lunch_1.jpg', '서대전여고 급식 사진 1')">
-                            <div class="relative rounded-2xl shadow-lg w-full aspect-video overflow-hidden bg-white">
+                            <div class="relative rounded-2xl shadow-lg w-full aspect-[4/3] overflow-hidden bg-white">
                                 <img src="images/lunch_1.jpg" 
                                      alt="서대전여고 급식 사진 1" 
-                                     class="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                                      style="image-rendering: auto;"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 <div class="absolute inset-0 flex items-center justify-center text-6xl" style="display: none;">
@@ -422,10 +423,10 @@
                             </div>
                         </div>
                         <div class="food-item group cursor-pointer" onclick="openImageModal('images/lunch_2.jpg', '서대전여고 급식 사진 2')">
-                            <div class="relative rounded-2xl shadow-lg w-full aspect-video overflow-hidden bg-white">
+                            <div class="relative rounded-2xl shadow-lg w-full aspect-[4/3] overflow-hidden bg-white">
                                 <img src="images/lunch_2.jpg" 
                                      alt="서대전여고 급식 사진 2" 
-                                     class="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                                      style="image-rendering: auto;"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 <div class="absolute inset-0 flex items-center justify-center text-6xl" style="display: none;">
@@ -440,10 +441,10 @@
                             </div>
                         </div>
                         <div class="food-item group cursor-pointer" onclick="openImageModal('images/lunch_3.jpg', '서대전여고 급식 사진 3')">
-                            <div class="relative rounded-2xl shadow-lg w-full aspect-video overflow-hidden bg-white">
+                            <div class="relative rounded-2xl shadow-lg w-full aspect-[4/3] overflow-hidden bg-white">
                                 <img src="images/lunch_3.jpg" 
                                      alt="서대전여고 급식 사진 3" 
-                                     class="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                                      style="image-rendering: auto;"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 <div class="absolute inset-0 flex items-center justify-center text-6xl" style="display: none;">
@@ -458,10 +459,10 @@
                             </div>
                         </div>
                         <div class="food-item group cursor-pointer" onclick="openImageModal('images/lunch_4.jpg', '서대전여고 급식 사진 4')">
-                            <div class="relative rounded-2xl shadow-lg w-full aspect-video overflow-hidden bg-white">
+                            <div class="relative rounded-2xl shadow-lg w-full aspect-[4/3] overflow-hidden bg-white">
                                 <img src="images/lunch_4.jpg" 
                                      alt="서대전여고 급식 사진 4" 
-                                     class="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                                      style="image-rendering: auto;"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 <div class="absolute inset-0 flex items-center justify-center text-6xl" style="display: none;">
@@ -471,8 +472,8 @@
                                     <div class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
                                         <div class="text-3xl mb-2">🔍</div>
                                         <p class="text-sm font-semibold">클릭하여 크게 보기</p>
-                                    </div>
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -480,7 +481,7 @@
                     <div class="bg-white/70 backdrop-blur-lg p-8 rounded-3xl shadow-2xl border border-white/20">
                         <div class="text-center mb-8">
                             <h3 class="text-2xl font-bold gradient-text mb-3">서대전여고 급식의 특별함</h3>
-                            <p class="text-gray-600">우리 학교 급식이 특별한 이유를 알아보세요!</p>
+                            <p class="text-gray-600">우리 학교 급식이 특별한 네 가지 이유</p>
                         </div>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                             <div class="meal-feature group">
@@ -509,38 +510,86 @@
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section id="faq" class="py-20 bg-gradient-to-b from-stone-50 to-white">
+        <!-- News Section - 뉴스로 알아보는 서대전여고 -->
+        <section id="news" class="py-20 bg-gradient-to-b from-red-50 to-rose-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 fade-in">
-                    <h2 class="text-3xl md:text-5xl font-black gradient-text mb-4">선배들이 직접 답해줄게!</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">서대전여고에 대해 궁금한 점이 많죠? 여러분이 가장 궁금해하는 질문들을 모아 선배들이 직접 솔직하게 답변해 드립니다.</p>
+                    <h2 class="text-2xl md:text-5xl font-black gradient-text mb-4">뉴스로 알아보는 서대전여고</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">언론에서 주목하는 서대전여고의 교육 성과와 특별한 이야기들을 만나보세요.</p>
                 </div>
-                <div class="max-w-4xl mx-auto space-y-5 fade-in">
+
+                <div class="fade-in">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="news-item group cursor-pointer bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 hover:transform hover:-translate-y-2" onclick="window.open('https://m.blog.naver.com/PostView.naver?blogId=sdjh_school&logNo=223548981157&navType=by', '_blank')">
+                            <div class="relative">
+                                <img src="images/sdj_news.jpg" 
+                                     alt="서대전여고 뉴스 기사" 
+                                     class="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="absolute inset-0 flex items-center justify-center text-6xl bg-gradient-to-br from-blue-100 to-indigo-100" style="display: none;">
+                                    📰
+                                </div>
+                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                                    <div class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                                        <div class="text-4xl mb-3">📰</div>
+                                        <p class="text-lg font-bold">기사 전문 보기</p>
+                                    </div>
+                                </div>
+                                <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                                    NEWS
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-purple-600 transition-colors">
+                                    [기획] 서대전여고, 실력으로 증명하는 대전의 명문 사학 발돋움
+                                </h3>
+                                <p class="text-gray-600 text-lg leading-relaxed mb-4">
+                                    다양한 교과 연계 활동으로 매년 86% 이상의 높은 대학진학률을 달성하며, 바른 인성을 갖추고 새로운 가치를 창출하는 창의융합형 인재를 양성하고 있습니다.
+                                </p>
+                                <div class="flex items-center justify-between text-sm text-gray-500">
+                                    <span>데일리한국</span>
+                                    <span>2024.08.15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-gradient-to-b from-cyan-50 to-blue-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-2xl md:text-5xl font-black gradient-text mb-4">선배들이 직접 답해줄게!</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">서대전여고에 대해 궁금한 점이 많죠?<br>여러분이 가장 궁금해하는 질문들을 모아 선배들이 직접 솔직하게 답변해 드립니다.</p>
+                </div>
+                <div class="max-w-4xl mx-auto space-y-3 md:space-y-5 fade-in">
                     <div class="faq-item bg-white rounded-2xl shadow-md">
-                        <button class="faq-question w-full text-left p-6 md:p-8 flex justify-between items-center">
-                            <span class="font-bold text-lg md:text-xl pr-4">Q. 여고라서 분위기가 너무 무서울 것 같아요.</span>
-                            <span class="faq-arrow text-3xl font-light transform transition-transform text-purple-600">+</span>
+                        <button class="faq-question w-full text-left p-4 md:p-8 flex justify-between items-center">
+                            <span class="font-bold text-base md:text-xl pr-4">Q. 여고라서 분위기가 너무 무서울 것 같아요.</span>
+                            <span class="faq-arrow text-2xl md:text-3xl font-light transform transition-transform text-purple-600">+</span>
                         </button>
-                        <div class="faq-answer hidden p-6 md:p-8 pt-0 text-gray-600 text-base md:text-lg leading-relaxed">
+                        <div class="faq-answer hidden p-4 md:p-8 pt-0 text-gray-600 text-sm md:text-lg leading-relaxed">
                             <p><strong class="gradient-text">A.</strong> 전혀 그렇지 않아요! 오히려 서로 더 잘 챙겨주고 공감대도 커서 금방 친해질 수 있어요. 다 같이 으쌰으쌰 공부하고, 축제나 체육대회 때는 단합이 정말 잘 된답니다! 선후배 관계도 돈독해서 학교 생활 꿀팁도 많이 얻을 수 있어요.</p>
                         </div>
                     </div>
                     <div class="faq-item bg-white rounded-2xl shadow-md">
-                        <button class="faq-question w-full text-left p-6 md:p-8 flex justify-between items-center">
-                            <span class="font-bold text-lg md:text-xl pr-4">Q. 교복이나 두발 규정은 어떤가요?</span>
-                            <span class="faq-arrow text-3xl font-light transform transition-transform text-purple-600">+</span>
+                        <button class="faq-question w-full text-left p-4 md:p-8 flex justify-between items-center">
+                            <span class="font-bold text-base md:text-xl pr-4">Q. 교복이나 두발 규정은 어떤가요?</span>
+                            <span class="faq-arrow text-2xl md:text-3xl font-light transform transition-transform text-purple-600">+</span>
                         </button>
-                        <div class="faq-answer hidden p-6 md:p-8 pt-0 text-gray-600 text-base md:text-lg leading-relaxed">
+                        <div class="faq-answer hidden p-4 md:p-8 pt-0 text-gray-600 text-sm md:text-lg leading-relaxed">
                             <p><strong class="gradient-text">A.</strong> 우리 학교 교복 정말 예쁘기로 유명해요! 편하고 예쁜 생활복도 있어서 인기가 많아요. 두발 규정은 염색이나 과도한 파마는 안 되지만, 기본적인 선에서는 자유로운 편이라 자신만의 개성을 표현하기에 충분해요.</p>
                         </div>
                     </div>
                     <div class="faq-item bg-white rounded-2xl shadow-md">
-                        <button class="faq-question w-full text-left p-6 md:p-8 flex justify-between items-center">
-                            <span class="font-bold text-lg md:text-xl pr-4">Q. 내신 경쟁이 너무 치열하지는 않을까요?</span>
-                            <span class="faq-arrow text-3xl font-light transform transition-transform text-purple-600">+</span>
+                        <button class="faq-question w-full text-left p-4 md:p-8 flex justify-between items-center">
+                            <span class="font-bold text-base md:text-xl pr-4">Q. 내신 경쟁이 너무 치열하지는 않을까요?</span>
+                            <span class="faq-arrow text-2xl md:text-3xl font-light transform transition-transform text-purple-600">+</span>
                         </button>
-                        <div class="faq-answer hidden p-6 md:p-8 pt-0 text-gray-600 text-base md:text-lg leading-relaxed">
+                        <div class="faq-answer hidden p-4 md:p-8 pt-0 text-gray-600 text-sm md:text-lg leading-relaxed">
                             <p><strong class="gradient-text">A.</strong> 공부 잘하는 친구들이 많은 건 사실이지만, 그만큼 면학 분위기가 잘 조성되어 있다는 뜻이기도 해요. 서로 질문하고 알려주면서 함께 성장하는 분위기예요. 선생님들도 열정적으로 가르쳐주시고, 방과후 수업이나 심화반 프로그램이 잘 되어 있어서 따라가기 어렵지 않을 거예요!</p>
                         </div>
                     </div>
@@ -556,6 +605,26 @@
                 &times;
             </button>
             <img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+        <div class="relative w-full max-w-4xl mx-4">
+            <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-white text-4xl font-bold hover:text-gray-300 transition-colors z-10">
+                &times;
+            </button>
+            <div class="relative w-full" style="padding-bottom: 56.25%; height: 0;">
+                <iframe id="videoFrame" 
+                        class="absolute top-0 left-0 w-full h-full rounded-lg shadow-2xl" 
+                        src="" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                </iframe>
+            </div>
         </div>
     </div>
 

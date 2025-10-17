@@ -200,10 +200,36 @@ function closeImageModal() {
     document.body.style.overflow = 'auto';
 }
 
+// 비디오 모달 기능
+function openVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const videoFrame = document.getElementById('videoFrame');
+    
+    // YouTube 영상 URL 설정
+    videoFrame.src = 'https://www.youtube.com/embed/7ISB3-ouMwE?si=a1knpy61DditQ1b8&autoplay=1';
+    modal.classList.remove('hidden');
+    
+    // 스크롤 방지
+    document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const videoFrame = document.getElementById('videoFrame');
+    
+    // 영상 정지를 위해 src 제거
+    videoFrame.src = '';
+    modal.classList.add('hidden');
+    
+    // 스크롤 복원
+    document.body.style.overflow = 'auto';
+}
+
 // ESC 키로 모달 닫기
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeImageModal();
+        closeVideoModal();
     }
 });
 
@@ -211,6 +237,12 @@ document.addEventListener('keydown', (e) => {
 document.getElementById('imageModal').addEventListener('click', (e) => {
     if (e.target.id === 'imageModal') {
         closeImageModal();
+    }
+});
+
+document.getElementById('videoModal').addEventListener('click', (e) => {
+    if (e.target.id === 'videoModal') {
+        closeVideoModal();
     }
 });
 
