@@ -284,3 +284,49 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// AI Video Modal Functions
+const aiVideoUrls = {
+    'ai-expert': 'https://www.youtube.com/embed/JOCs_yg1wlE?si=ZuLOJidd2-9KDTrM&autoplay=1', // AI 전문가 영상
+    'robot-experience': 'https://www.youtube.com/embed/hXpHIEvucs8?si=Q6M-wEhQCiAVDBL9&autoplay=1', // 로봇 체험 영상
+    'mechdog-robot': 'https://www.youtube.com/embed/c7XJqjFmjto?si=fOjm9YN5b5aUUyx2&autoplay=1', // 메카독 로봇 영상
+    '3d-printer': 'https://www.youtube.com/embed/eBDeHRf8kVY?autoplay=1' // 3D 프린터 영상
+};
+
+function openAIVideoModal(videoType) {
+    const modal = document.getElementById('aiVideoModal');
+    const iframe = document.getElementById('aiVideoFrame');
+    
+    if (aiVideoUrls[videoType]) {
+        iframe.src = aiVideoUrls[videoType];
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    } else {
+        alert('영상 URL이 설정되지 않았습니다. 관리자에게 문의해주세요.');
+    }
+}
+
+function closeAIVideoModal() {
+    const modal = document.getElementById('aiVideoModal');
+    const iframe = document.getElementById('aiVideoFrame');
+    
+    modal.classList.add('hidden');
+    iframe.src = '';
+    document.body.style.overflow = 'auto';
+}
+
+// ESC 키로 AI 모달 닫기
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeImageModal();
+        closeVideoModal();
+        closeAIVideoModal();
+    }
+});
+
+// AI 모달 배경 클릭으로 닫기
+document.getElementById('aiVideoModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeAIVideoModal();
+    }
+});
+
