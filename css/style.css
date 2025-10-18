@@ -894,4 +894,38 @@ a:focus {
     }
 }
 
+/* AI·SW 방과후학교 이미지 스타일 */
+.ai-sw-item img {
+    transition: all 0.3s ease;
+    filter: brightness(0.98);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.ai-sw-item:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.02);
+}
+
+/* AI·SW 로봇 작품 이미지 컨테이너 */
+.ai-sw-robots-container {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+}
+
+.ai-sw-robots-container img {
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    padding: 0.25rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+}
+
 
