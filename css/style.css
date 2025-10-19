@@ -928,4 +928,94 @@ a:focus {
     border-radius: 0.75rem;
 }
 
+/* 웹툰 스타일 */
+.webtoon-container {
+    border: 3px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.webtoon-panel {
+    border-bottom: 2px solid #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.webtoon-panel:last-child {
+    border-bottom: none;
+}
+
+.webtoon-panel img {
+    transition: transform 0.3s ease;
+}
+
+.webtoon-panel:hover img {
+    transform: scale(1.02);
+}
+
+.webtoon-caption {
+    transition: opacity 0.3s ease;
+}
+
+.webtoon-panel:hover .webtoon-caption {
+    opacity: 0.9;
+}
+
+/* 웹툰 말풍선 효과 */
+.webtoon-caption p {
+    position: relative;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.webtoon-caption p::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 10px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 웹툰 애니메이션 */
+@keyframes webtoonFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.webtoon-container:hover {
+    animation: webtoonFloat 2s ease-in-out infinite;
+}
+
+/* 웹툰 썸네일 스타일 */
+.webtoon-thumbnail-container {
+    border: 2px solid #333;
+    transition: all 0.3s ease;
+}
+
+.webtoon-thumbnail-container:hover {
+    border-color: #6366f1;
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+}
+
+/* 웹툰 모달 스타일 */
+#webtoonModal {
+    backdrop-filter: blur(8px);
+}
+
+#webtoonModal .webtoon-container {
+    border: none;
+    box-shadow: none;
+}
+
+#webtoonModal .webtoon-panel {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+#webtoonModal .webtoon-panel:last-child {
+    border-bottom: none;
+}
+
 

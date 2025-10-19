@@ -330,3 +330,38 @@ document.getElementById('aiVideoModal').addEventListener('click', function(e) {
     }
 });
 
+// 웹툰 모달 기능
+function openWebtoon() {
+    const modal = document.getElementById('webtoonModal');
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeWebtoon() {
+    const modal = document.getElementById('webtoonModal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+// ESC 키로 웹툰 모달 닫기
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeImageModal();
+        closeVideoModal();
+        closeAIVideoModal();
+        closeWebtoon();
+    }
+});
+
+// 웹툰 모달 배경 클릭으로 닫기
+document.addEventListener('DOMContentLoaded', function() {
+    const webtoonModal = document.getElementById('webtoonModal');
+    if (webtoonModal) {
+        webtoonModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeWebtoon();
+            }
+        });
+    }
+});
+
