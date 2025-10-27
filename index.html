@@ -779,6 +779,41 @@
                         </div>
                     </div>
 
+                    <!-- AI·SW 방과후학교 현장 보기 갤러리 -->
+                    <div class="text-center mb-12 fade-in">
+                        <div class="inline-block mb-4">
+                            <h3 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                                💜 AI·SW 방과후학교 현장 보기
+                            </h3>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-sm md:text-base">
+                            방과후학교의 생생한 교육 현장을 소개합니다! <span class="text-purple-600 font-semibold">✨</span>
+                        </p>
+                        
+                        <div class="max-w-4xl mx-auto">
+                            <div class="group cursor-pointer" onclick="openAfterSchool()">
+                                <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100">
+                                    <img src="images/after_school/sdjgh_after_school_class_1.jpg" 
+                                         alt="AI·SW 방과후학교 현장" 
+                                         class="w-full h-48 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="absolute inset-0 flex items-center justify-center text-8xl" style="display: none;">
+                                        🎓
+                                    </div>
+                                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                                        <div class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                                            <div class="text-4xl mb-3">📷</div>
+                                            <p class="text-lg font-bold">방과후학교 현장 갤러리 보기</p>
+                                        </div>
+                                    </div>
+                                    <div class="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-2 rounded-full font-bold shadow-lg">
+                                        💜 방과후학교 현장
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- AI·SW 방과후학교 보유 장비 및 작품 -->
                     <div class="text-center mb-12 fade-in">
                         <h3 class="text-xl font-bold gradient-text mb-6">우리가 보유한 로봇, 3D 프린터 작품</h3>
@@ -1269,6 +1304,81 @@
                 <p class="text-sm md:text-lg font-semibold bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent">
                     📋 서대전여고의 체계적인 교육과정을 확인하세요
                 </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI·SW 방과후학교 현장 보기 모달 -->
+    <div id="afterSchoolModal" class="fixed inset-0 bg-gray-900/80 backdrop-blur-md z-[60] hidden">
+        <div class="flex items-center justify-center min-h-screen p-1 md:p-2 w-full">
+            <div class="bg-white rounded-xl shadow-2xl w-full max-w-[98vw] md:max-w-5xl h-[98vh] overflow-hidden border-2 border-gray-200 relative z-10 flex flex-col">
+                <!-- 모달 헤더 -->
+                <div class="flex items-center justify-between px-4 py-5 md:px-6 md:py-6 border-b-2 border-purple-200 bg-gradient-to-r from-purple-50 to-pink-50 shadow-sm relative z-10 flex-shrink-0">
+                    <h3 class="text-xl md:text-2xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent flex-1 pr-2">💜 AI·SW 방과후학교</h3>
+                    <button onclick="closeAfterSchool()" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all duration-200 p-2 rounded-full shadow-xl font-bold text-base w-10 h-10 flex items-center justify-center border-2 border-white relative z-20 flex-shrink-0">
+                        ✕
+                    </button>
+                </div>
+        
+                <!-- 방과후학교 현장 갤러리 내용 -->
+                <div class="overflow-y-auto flex-1 scrollbar-thin scrollbar-thumb-purple-300 scrollbar-track-gray-100">
+                    <div class="after-school-container space-y-1">
+                        <!-- 방과후학교 현장 이미지 1 -->
+                        <div class="after-school-panel relative group">
+                            <img src="images/after_school/sdjgh_after_school_class_1.jpg" 
+                                 alt="AI·SW 방과후학교 현장 1" 
+                                 class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
+                                 onerror="this.style.display='none';">
+                            <div class="after-school-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <p class="text-white font-bold text-sm md:text-lg">👥 AI·SW 방과후학교 학생 단체사진</p>
+                                <p class="text-white/80 text-xs md:text-sm mt-1">AI 교구들과 함께 즐거운 시간</p>
+                            </div>
+                        </div>
+
+                        <!-- 방과후학교 현장 이미지 2 -->
+                        <div class="after-school-panel relative group">
+                            <img src="images/after_school/sdjgh_after_school_class_2.jpg" 
+                                 alt="AI·SW 방과후학교 현장 2" 
+                                 class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
+                                 onerror="this.style.display='none';">
+                            <div class="after-school-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <p class="text-white font-bold text-sm md:text-lg">🤖 AI·SW 방과후학교 로봇 제어 실습</p>
+                                <p class="text-white/80 text-xs md:text-sm mt-1">서로 가르치고 배우는 협력의 순간</p>
+                            </div>
+                        </div>
+
+                        <!-- 방과후학교 현장 이미지 3 -->
+                        <div class="after-school-panel relative group">
+                            <img src="images/after_school/sdjgh_after_school_class_3.jpg" 
+                                 alt="AI·SW 방과후학교 현장 3" 
+                                 class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
+                                 onerror="this.style.display='none';">
+                            <div class="after-school-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <p class="text-white font-bold text-sm md:text-lg">🐕 AI·SW 방과후학교 로봇개 동작 실습</p>
+                                <p class="text-white/80 text-xs md:text-sm mt-1">아이디어가 로봇의 움직임으로 완성되는 순간</p>
+                            </div>
+                        </div>
+
+                        <!-- 방과후학교 현장 이미지 4 -->
+                        <div class="after-school-panel relative group">
+                            <img src="images/after_school/sdjgh_after_school_class_4.jpg" 
+                                 alt="AI·SW 방과후학교 현장 4" 
+                                 class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
+                                 onerror="this.style.display='none';">
+                            <div class="after-school-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <p class="text-white font-bold text-sm md:text-lg">💻 AI·SW 방과후학교 파이썬 코딩 교육</p>
+                                <p class="text-white/80 text-xs md:text-sm mt-1">코딩이 어려움이 아닌 재미가 되는 순간</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 모달 푸터 -->
+                <div class="flex-shrink-0 bg-gradient-to-r from-purple-600 to-pink-600 text-white p-4 md:p-6 text-center border-t-2 border-purple-300 shadow-lg">
+                    <p class="text-sm md:text-lg font-semibold bg-gradient-to-r from-white to-purple-100 bg-clip-text text-transparent">
+                        💜 AI와 SW를 배우는 즐거운 방과후학교 현장을 소개합니다
+                    </p>
+                </div>
             </div>
         </div>
     </div>
