@@ -653,9 +653,9 @@ document.getElementById('aiVideoModal').addEventListener('click', function(e) {
     }
 });
 
-// 풍경 갤러리 모달 기능
-function openScenery() {
-    const modal = document.getElementById('sceneryModal');
+// 캠페인 갤러리 모달 기능
+function openCampaign() {
+    const modal = document.getElementById('campaignModal');
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
     
@@ -666,29 +666,29 @@ function openScenery() {
     }
 }
 
-function closeScenery() {
-    const modal = document.getElementById('sceneryModal');
+function closeCampaign() {
+    const modal = document.getElementById('campaignModal');
     modal.classList.add('hidden');
     document.body.style.overflow = 'auto';
 }
 
-// ESC 키로 풍경 갤러리 모달 닫기
+// ESC 키로 캠페인 갤러리 모달 닫기
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeImageModal();
         closeVideoModal();
         closeAIVideoModal();
-        closeScenery();
+        closeCampaign();
     }
 });
 
-// 풍경 갤러리 모달 배경 클릭으로 닫기
+// 캠페인 갤러리 모달 배경 클릭으로 닫기
 document.addEventListener('DOMContentLoaded', function() {
-    const sceneryModal = document.getElementById('sceneryModal');
-    if (sceneryModal) {
-        sceneryModal.addEventListener('click', function(e) {
+    const campaignModal = document.getElementById('campaignModal');
+    if (campaignModal) {
+        campaignModal.addEventListener('click', function(e) {
             if (e.target === this) {
-                closeScenery();
+                closeCampaign();
             }
         });
     }
