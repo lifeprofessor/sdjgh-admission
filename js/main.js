@@ -793,3 +793,76 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// 교육과정 편성표 모달 함수들
+function openCurriculum() {
+    console.log('Opening curriculum modal');
+    const modal = document.getElementById('curriculumModal');
+    const bgmToggle = document.getElementById('bgm-toggle');
+    const mobileBgmGuide = document.getElementById('mobile-bgm-guide');
+    const header = document.querySelector('header');
+    
+    if (modal) {
+        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // BGM 버튼과 모바일 가이드 숨기기
+        if (bgmToggle) {
+            bgmToggle.classList.add('modal-open');
+        }
+        if (mobileBgmGuide) {
+            mobileBgmGuide.classList.add('modal-open');
+        }
+        if (header) {
+            header.classList.add('modal-open');
+        }
+    }
+}
+
+function closeCurriculum() {
+    console.log('Closing curriculum modal');
+    const modal = document.getElementById('curriculumModal');
+    const bgmToggle = document.getElementById('bgm-toggle');
+    const mobileBgmGuide = document.getElementById('mobile-bgm-guide');
+    const header = document.querySelector('header');
+    
+    if (modal) {
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        
+        // BGM 버튼과 모바일 가이드 다시 보이기
+        if (bgmToggle) {
+            bgmToggle.classList.remove('modal-open');
+        }
+        if (mobileBgmGuide) {
+            mobileBgmGuide.classList.remove('modal-open');
+        }
+        if (header) {
+            header.classList.remove('modal-open');
+        }
+    }
+}
+
+// 교육과정 편성표 모달 ESC 키로 닫기
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const curriculumModal = document.getElementById('curriculumModal');
+        if (curriculumModal && !curriculumModal.classList.contains('hidden')) {
+            closeCurriculum();
+        }
+    }
+});
+
+// 교육과정 편성표 모달 배경 클릭으로 닫기
+document.addEventListener('DOMContentLoaded', function() {
+    const curriculumModal = document.getElementById('curriculumModal');
+    if (curriculumModal) {
+        curriculumModal.addEventListener('click', function(e) {
+            if (e.target === curriculumModal) {
+                closeCurriculum();
+            }
+        });
+    }
+});
+
