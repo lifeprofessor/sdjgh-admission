@@ -528,7 +528,7 @@ function initBGM() {
     // 초기 버튼 상태 설정
     updateButtonState();
     
-    // 모바일 BGM 안내 메시지 자동 숨김 (15초 후)
+    // 모바일 BGM 안내 메시지 자동 숨김 (5초 후)
     const mobileGuide = document.getElementById('mobile-bgm-guide');
     if (mobileGuide) {
         setTimeout(() => {
@@ -537,7 +537,7 @@ function initBGM() {
             setTimeout(() => {
                 mobileGuide.style.display = 'none';
             }, 500);
-        }, 15000);
+        }, 5000);
         
         // BGM 재생 시작하면 즉시 숨김
         bgm.addEventListener('play', () => {
