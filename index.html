@@ -247,7 +247,7 @@
                     </h2>
                     <p class="text-xl md:text-2xl font-bold text-green-800 mb-4">최근 5년간 학교폭력 ZERO</p>
                     <p class="text-gray-700 max-w-3xl mx-auto text-lg leading-relaxed">
-                        서대전여자고등학교는 <strong class="text-green-700">2021년부터 2025년까지<br><span class="text-blue-600 text-2xl font-extrabold">최근 5년간</span></strong><br>
+                        서대전여고는 <strong class="text-green-700">2021년부터 2025년까지<br><span class="text-blue-600 text-2xl font-extrabold">최근 5년간</span></strong><br>
                         <strong class="text-green-700">학교폭력이 <span class="text-red-600 text-2xl font-extrabold">단 한 건도</span> 발생하지 않은</strong> 안전한 학교예요.
                     </p>
                 </div>
@@ -281,14 +281,21 @@
                     </div>
 
                     
-                </div>
+                            </div>
 
                 <!-- Campaign Gallery Section - 캠페인 갤러리 -->
-        <section class="py-20 bg-gradient-to-b from-pink-50 to-purple-50">
+        <section class="py-20 bg-gradient-to-b from-green-50 to-emerald-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 fade-in">
-                    <h2 class="text-2xl md:text-5xl font-black gradient-text mb-4">학교·언어폭력, 우리 손으로 멈춰요!</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">우리 학교의 다양한 활동과 캠페인을 소개합니다! 📢✨</p>
+                    <h2 class="text-2xl md:text-5xl font-black mb-4">
+                        <span class="text-pink-500">학교·언어폭력,</span><br>
+                        <span class="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">우리 손으로 멈춰요!</span>
+                    </h2>
+                    <p class="text-gray-700 mt-4 max-w-2xl mx-auto text-lg">
+                        <span class="text-2xl">🛡️</span><br>
+                        <span class="text-green-700 font-bold">학교폭력 예방</span>을 위한<br>
+                        우리의 <span class="text-blue-600 font-semibold">노력과 캠페인</span>을 소개합니다!
+                    </p>
                 </div>
                 
                 <!-- 캠페인 갤러리 썸네일 -->
@@ -312,7 +319,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 캠페인 미리보기 그리드 -->
                 <div class="fade-in mt-12">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
@@ -354,28 +361,30 @@
                         </div>
                     </div>
                     <div class="text-center mt-6">
-                        <p class="text-gray-500 text-sm">📢 클릭하여 더 많은 캠페인을 확인해보세요!</p>
+                        <p class="text-gray-600 text-sm">
+                            <span class="text-lg">🛡️</span> 클릭하여 
+                            <span class="text-red-600 font-bold">학교폭력 예방</span> 
+                            <span class="text-blue-600 font-semibold">캠페인</span>을 확인해보세요!
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 캠페인 갤러리 모달 -->
-        <div id="campaignModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 hidden">
-            <div class="flex items-center justify-center min-h-screen p-2 md:p-4">
-                <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[95vh] overflow-hidden">
+        <div id="campaignModal" class="fixed inset-0 bg-gray-900/80 backdrop-blur-md z-[60] hidden">
+            <div class="flex items-center justify-center min-h-screen p-1 md:p-2 w-full">
+                <div class="bg-white rounded-xl shadow-2xl w-full max-w-[98vw] md:max-w-5xl h-[98vh] overflow-hidden border-2 border-gray-200 relative z-10 flex flex-col">
                     <!-- 모달 헤더 -->
-                    <div class="flex items-center justify-between p-4 md:p-6 border-b border-gray-200 bg-gradient-to-r from-purple-50 to-blue-50">
-                        <h3 class="text-xl md:text-2xl font-bold gradient-text">📢 서대전여고 캠페인</h3>
-                        <button onclick="closeCampaign()" class="text-gray-500 hover:text-gray-700 transition-colors p-1">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
+                    <div class="flex items-center justify-between px-4 py-5 md:px-6 md:py-6 border-b-2 border-purple-200 bg-gradient-to-r from-purple-50 to-pink-50 shadow-sm relative z-10 flex-shrink-0">
+                        <h3 class="text-xl md:text-2xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent flex-1 pr-2">📢 서대전여고 캠페인</h3>
+                        <button onclick="closeCampaign()" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all duration-200 p-2 rounded-full shadow-xl font-bold text-base w-10 h-10 flex items-center justify-center border-2 border-white relative z-20 flex-shrink-0">
+                            ✕
                         </button>
-                    </div>
+                                </div>
                     
                     <!-- 캠페인 갤러리 내용 -->
-                    <div class="overflow-y-auto max-h-[75vh] md:max-h-[70vh] scrollbar-thin scrollbar-thumb-purple-300 scrollbar-track-gray-100">
+                    <div class="overflow-y-auto flex-1 scrollbar-thin scrollbar-thumb-purple-300 scrollbar-track-gray-100">
                         <div class="campaign-container space-y-1">
                             <!-- 캠페인 이미지 1 -->
                             <div class="campaign-panel relative group">
@@ -384,11 +393,11 @@
                                      class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
                                      onerror="this.style.display='none';">
                                 <div class="campaign-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <p class="text-white font-bold text-sm md:text-lg">🎯 학교 홍보 캠페인</p>
-                                    <p class="text-white/80 text-xs md:text-sm mt-1">서대전여고의 우수성을 알리는 캠페인</p>
+                                    <p class="text-white font-bold text-sm md:text-lg">🛡️ 학교폭력 예방 캠페인</p>
+                                    <p class="text-white/80 text-xs md:text-sm mt-1">학생이 만드는 존중과 배려의 학교</p>
                                 </div>
                             </div>
-                            
+
                             <!-- 캠페인 이미지 2 -->
                             <div class="campaign-panel relative group">
                                 <img src="images/campaign/sdjgh_campaign_2.jpg" 
@@ -396,11 +405,11 @@
                                      class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
                                      onerror="this.style.display='none';">
                                 <div class="campaign-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <p class="text-white font-bold text-sm md:text-lg">📚 교육 프로그램 안내</p>
-                                    <p class="text-white/80 text-xs md:text-sm mt-1">다양한 교육과정과 특별 프로그램</p>
+                                    <p class="text-white font-bold text-sm md:text-lg">🤝 학교폭력 예방 캠페인</p>
+                                    <p class="text-white/80 text-xs md:text-sm mt-1">학생이 만드는 존중과 배려의 학교</p>
                                 </div>
                             </div>
-                            
+
                             <!-- 캠페인 이미지 3 -->
                             <div class="campaign-panel relative group">
                                 <img src="images/campaign/sdjgh_campaign_3.jpg" 
@@ -408,11 +417,11 @@
                                      class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
                                      onerror="this.style.display='none';">
                                 <div class="campaign-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <p class="text-white font-bold text-sm md:text-lg">🌟 학생 활동 소개</p>
-                                    <p class="text-white/80 text-xs md:text-sm mt-1">동아리와 특별활동 안내</p>
+                                    <p class="text-white font-bold text-sm md:text-lg">💝 학교폭력 예방 캠페인</p>
+                                    <p class="text-white/80 text-xs md:text-sm mt-1">학생이 만드는 존중과 배려의 학교</p>
                                 </div>
                             </div>
-                            
+
                             <!-- 캠페인 이미지 4 -->
                             <div class="campaign-panel relative group">
                                 <img src="images/campaign/sdjgh_campaign_4.jpg" 
@@ -420,8 +429,8 @@
                                      class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
                                      onerror="this.style.display='none';">
                                 <div class="campaign-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <p class="text-white font-bold text-sm md:text-lg">🏆 학교 성과 홍보</p>
-                                    <p class="text-white/80 text-xs md:text-sm mt-1">우수한 교육 성과와 수상 실적</p>
+                                    <p class="text-white font-bold text-sm md:text-lg">💬 바르고 고운말 쓰기 캠페인</p>
+                                    <p class="text-white/80 text-xs md:text-sm mt-1">고운 말이 만드는 따뜻한 교실</p>
                                 </div>
                             </div>
                             
@@ -432,8 +441,8 @@
                                      class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
                                      onerror="this.style.display='none';">
                                 <div class="campaign-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <p class="text-white font-bold text-sm md:text-lg">💡 진로 진학 안내</p>
-                                    <p class="text-white/80 text-xs md:text-sm mt-1">체계적인 진로 상담과 진학 지도</p>
+                                    <p class="text-white font-bold text-sm md:text-lg">🌸 바르고 고운말 쓰기 캠페인</p>
+                                    <p class="text-white/80 text-xs md:text-sm mt-1">고운 말이 만드는 따뜻한 교실</p>
                                 </div>
                             </div>
                             
@@ -444,21 +453,21 @@
                                      class="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
                                      onerror="this.style.display='none';">
                                 <div class="campaign-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <p class="text-white font-bold text-sm md:text-lg">🎉 학교폭력 에방 작품 공모전</p>
-                                    <p class="text-white/80 text-xs md:text-sm mt-1">금상, 은상, 동상</p>
+                                    <p class="text-white font-bold text-sm md:text-lg">🏆 학교폭력 예방 작품 공모전 수상작</p>
+                                    <p class="text-white/80 text-xs md:text-sm mt-1">작은 작품에 담긴 큰 마음, 폭력 없는 학교를 꿈꾸며</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- 모달 푸터 -->
-                    <div class="p-4 md:p-6 border-t border-gray-200 text-center bg-gradient-to-r from-purple-50 to-blue-50">
-                        <p class="text-gray-600 text-sm md:text-base">📢 서대전여고의 다양한 캠페인을 소개합니다</p>
-                        <p class="text-gray-500 text-xs md:text-sm mt-1">위로 스크롤하여 더 많은 캠페인을 확인해보세요! 🎯✨</p>
+                    <div class="p-2 md:p-3 border-t border-green-200 text-center bg-gradient-to-r from-green-50 to-emerald-50 flex-shrink-0">
+                        <p class="text-green-700 text-xs md:text-sm font-semibold">🛡️ 학교폭력 예방을 위한 서대전여고의 노력</p>
+                        <p class="text-green-600 text-xs mt-1">최근 5년간 학교폭력 ZERO! 안전한 학교 만들기 캠페인 🌟</p>
+                    </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
                 <!-- 학부모 안심 메시지 -->
                 <div class="text-center mt-16 fade-in">

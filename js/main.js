@@ -183,10 +183,20 @@ function initClubTabs() {
 function openImageModal(imageSrc, imageAlt) {
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
+    const bgmButton = document.getElementById('bgm-toggle');
+    const bgmGuide = document.getElementById('mobile-bgm-guide');
     
     modalImage.src = imageSrc;
     modalImage.alt = imageAlt;
     modal.classList.remove('hidden');
+    
+    // BGM 버튼과 가이드 숨기기
+    if (bgmButton) {
+        bgmButton.classList.add('modal-open');
+    }
+    if (bgmGuide) {
+        bgmGuide.classList.add('modal-open');
+    }
     
     // 스크롤 방지
     document.body.style.overflow = 'hidden';
@@ -194,7 +204,18 @@ function openImageModal(imageSrc, imageAlt) {
 
 function closeImageModal() {
     const modal = document.getElementById('imageModal');
+    const bgmButton = document.getElementById('bgm-toggle');
+    const bgmGuide = document.getElementById('mobile-bgm-guide');
+    
     modal.classList.add('hidden');
+    
+    // BGM 버튼과 가이드 다시 보이기
+    if (bgmButton) {
+        bgmButton.classList.remove('modal-open');
+    }
+    if (bgmGuide) {
+        bgmGuide.classList.remove('modal-open');
+    }
     
     // 스크롤 복원
     document.body.style.overflow = 'auto';
@@ -204,10 +225,20 @@ function closeImageModal() {
 function openVideoModal() {
     const modal = document.getElementById('videoModal');
     const videoFrame = document.getElementById('videoFrame');
+    const bgmButton = document.getElementById('bgm-toggle');
+    const bgmGuide = document.getElementById('mobile-bgm-guide');
     
     // YouTube 영상 URL 설정
     videoFrame.src = 'https://www.youtube.com/embed/7ISB3-ouMwE?si=a1knpy61DditQ1b8&autoplay=1';
     modal.classList.remove('hidden');
+    
+    // BGM 버튼과 가이드 숨기기
+    if (bgmButton) {
+        bgmButton.classList.add('modal-open');
+    }
+    if (bgmGuide) {
+        bgmGuide.classList.add('modal-open');
+    }
     
     // 스크롤 방지
     document.body.style.overflow = 'hidden';
@@ -215,11 +246,21 @@ function openVideoModal() {
 
 function closeVideoModal() {
     const modal = document.getElementById('videoModal');
+    const bgmButton = document.getElementById('bgm-toggle');
+    const bgmGuide = document.getElementById('mobile-bgm-guide');
     const videoFrame = document.getElementById('videoFrame');
     
     // 영상 정지를 위해 src 제거
     videoFrame.src = '';
     modal.classList.add('hidden');
+    
+    // BGM 버튼과 가이드 다시 보이기
+    if (bgmButton) {
+        bgmButton.classList.remove('modal-open');
+    }
+    if (bgmGuide) {
+        bgmGuide.classList.remove('modal-open');
+    }
     
     // 스크롤 복원
     document.body.style.overflow = 'auto';
@@ -517,7 +558,7 @@ function initBGM() {
             userInteracted = true;
             // 사용자가 상호작용한 후 BGM 시작 가능 상태로 설정
             if (!savedMuted && bgm.volume > 0) {
-                showBGMStartNotification();
+                // showBGMStartNotification();
             }
             // 이벤트 리스너 제거 (한 번만 실행)
             document.removeEventListener('click', enableAudioContext);
@@ -618,11 +659,21 @@ const aiVideoUrls = {
 function openAIVideoModal(videoType) {
     const modal = document.getElementById('aiVideoModal');
     const iframe = document.getElementById('aiVideoFrame');
+    const bgmButton = document.getElementById('bgm-toggle');
+    const bgmGuide = document.getElementById('mobile-bgm-guide');
     
     if (aiVideoUrls[videoType]) {
         iframe.src = aiVideoUrls[videoType];
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
+        
+        // BGM 버튼과 가이드 숨기기
+        if (bgmButton) {
+            bgmButton.classList.add('modal-open');
+        }
+        if (bgmGuide) {
+            bgmGuide.classList.add('modal-open');
+        }
     } else {
         alert('영상 URL이 설정되지 않았습니다. 관리자에게 문의해주세요.');
     }
@@ -631,10 +682,20 @@ function openAIVideoModal(videoType) {
 function closeAIVideoModal() {
     const modal = document.getElementById('aiVideoModal');
     const iframe = document.getElementById('aiVideoFrame');
+    const bgmButton = document.getElementById('bgm-toggle');
+    const bgmGuide = document.getElementById('mobile-bgm-guide');
     
     modal.classList.add('hidden');
     iframe.src = '';
     document.body.style.overflow = 'auto';
+    
+    // BGM 버튼과 가이드 다시 보이기
+    if (bgmButton) {
+        bgmButton.classList.remove('modal-open');
+    }
+    if (bgmGuide) {
+        bgmGuide.classList.remove('modal-open');
+    }
 }
 
 // ESC 키로 AI 모달 닫기
@@ -656,8 +717,27 @@ document.getElementById('aiVideoModal').addEventListener('click', function(e) {
 // 캠페인 갤러리 모달 기능
 function openCampaign() {
     const modal = document.getElementById('campaignModal');
+    const bgmButton = document.getElementById('bgm-toggle');
+    const bgmGuide = document.getElementById('mobile-bgm-guide');
+    const header = document.querySelector('header');
+    
     modal.classList.remove('hidden');
+    modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+    
+    // BGM 버튼과 가이드, 헤더 숨기기
+    if (bgmButton) {
+        bgmButton.classList.add('modal-open');
+        console.log('BGM 버튼 숨김');
+    }
+    if (bgmGuide) {
+        bgmGuide.classList.add('modal-open');
+        console.log('BGM 가이드 숨김');
+    }
+    if (header) {
+        header.classList.add('modal-open');
+        console.log('헤더 숨김');
+    }
     
     // 모바일에서 스크롤 최적화
     const container = modal.querySelector('.overflow-y-auto');
@@ -668,8 +748,27 @@ function openCampaign() {
 
 function closeCampaign() {
     const modal = document.getElementById('campaignModal');
+    const bgmButton = document.getElementById('bgm-toggle');
+    const bgmGuide = document.getElementById('mobile-bgm-guide');
+    const header = document.querySelector('header');
+    
     modal.classList.add('hidden');
+    modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    
+    // BGM 버튼과 가이드, 헤더 다시 보이기
+    if (bgmButton) {
+        bgmButton.classList.remove('modal-open');
+        console.log('BGM 버튼 다시 보임');
+    }
+    if (bgmGuide) {
+        bgmGuide.classList.remove('modal-open');
+        console.log('BGM 가이드 다시 보임');
+    }
+    if (header) {
+        header.classList.remove('modal-open');
+        console.log('헤더 다시 보임');
+    }
 }
 
 // ESC 키로 캠페인 갤러리 모달 닫기

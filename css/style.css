@@ -1125,6 +1125,13 @@ a:focus {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* 모달이 열렸을 때 BGM 버튼과 가이드, 헤더 완전히 숨기기 */
+#bgm-toggle.modal-open,
+#mobile-bgm-guide.modal-open,
+header.modal-open {
+    display: none !important;
+}
+
 #bgm-toggle:hover {
     transform: scale(1.1) translateY(-2px);
     box-shadow: 0 12px 35px rgba(147, 51, 234, 0.4);
