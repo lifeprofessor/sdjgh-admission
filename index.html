@@ -45,6 +45,33 @@
 </head>
 <body class="bg-stone-50 text-gray-800">
 
+    <!-- BGM Audio Element -->
+    <audio id="bgm" loop preload="auto" style="display: none;">
+        <source src="music/sdjgh_song.mp3" type="audio/mpeg">
+        브라우저가 오디오를 지원하지 않습니다.
+    </audio>
+
+    <!-- BGM Control Button -->
+    <button id="bgm-toggle" class="fixed top-20 right-4 z-50 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 backdrop-blur-sm border border-white/20" 
+            title="배경음악 재생/정지">
+        <svg id="play-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+        </svg>
+        <svg id="pause-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+        </svg>
+    </button>
+
+    <!-- BGM Volume Control (숨겨진 상태) -->
+    <div id="volume-control" class="fixed top-36 right-4 z-50 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg border border-purple-200 hidden">
+        <div class="flex items-center space-x-2">
+            <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.816L4.846 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.846l3.537-3.816a1 1 0 011.617.816zM16 8a2 2 0 11-4 0 2 2 0 014 0z" clip-rule="evenodd"></path>
+            </svg>
+            <input type="range" id="volume-slider" min="0" max="100" value="30" class="w-20 h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer">
+        </div>
+    </div>
+
     <!-- Header Navigation -->
     <header class="bg-white/90 backdrop-blur-xl sticky top-0 z-50 shadow-lg border-b border-purple-100">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -539,6 +566,14 @@
                     <h2 class="text-2xl md:text-5xl font-black gradient-text mb-4">서대전여고의 특별한 공간들</h2>
                     <p class="text-gray-600 text-lg font-bold">"배우고, 쉬고, 즐거운 곳"</p>
                     <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">학습과 휴식, 소통이 어우러진<br>서대전여고의 아름다운 공간들.<br>지금부터 하나씩 소개할게요.</p>
+                    
+                    <!-- 풍경 갤러리 버튼 -->
+                    <div class="mt-8">
+                        <button onclick="openScenery()" class="btn-gradient text-white font-bold py-4 px-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 text-lg hover:transform hover:-translate-y-1">
+                            🏫 캠퍼스 풍경 갤러리 보기 ✨
+                        </button>
+                        <p class="text-gray-500 text-sm mt-2">서대전여고의 아름다운 순간들을 웹툰 스타일로 감상해보세요!</p>
+                    </div>
                 </div>
 
                 <div class="fade-in">
@@ -811,6 +846,9 @@
                 </div>
             </div>
         </section>
+
+        
+
 
         <!-- FAQ Section -->
         <section id="faq" class="py-20 bg-gradient-to-b from-cyan-50 to-blue-50">

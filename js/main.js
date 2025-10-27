@@ -246,6 +246,162 @@ document.getElementById('videoModal').addEventListener('click', (e) => {
     }
 });
 
+// BGM 제어 기능
+function initBGM() {
+    const bgm = document.getElementById('bgm');
+    const toggleButton = document.getElementById('bgm-toggle');
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+    const volumeControl = document.getElementById('volume-control');
+    const volumeSlider = document.getElementById('volume-slider');
+    
+    let isPlaying = false;
+    let showVolumeControl = false;
+    
+    // 초기 볼륨 설정 (0.0 ~ 1.0)
+    bgm.volume = 0.3;
+    
+    // 로컬 스토리지에서 사용자 설정 불러오기
+    const savedVolume = localStorage.getItem('bgm-volume');
+    const savedMuted = localStorage.getItem('bgm-muted') === 'true';
+    
+    if (savedVolume) {
+        bgm.volume = parseFloat(savedVolume);
+        volumeSlider.value = bgm.volume * 100;
+    }
+    
+    // 음소거 상태였다면 볼륨을 0으로 설정
+    if (savedMuted) {
+        bgm.volume = 0;
+        volumeSlider.value = 0;
+    }
+    
+    // 토글 버튼 클릭 이벤트
+    toggleButton.addEventListener('click', () => {
+        if (isPlaying) {
+            pauseBGM();
+        } else {
+            playBGM();
+        }
+    });
+    
+    // 토글 버튼 우클릭으로 볼륨 컨트롤 표시/숨김
+    toggleButton.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        showVolumeControl = !showVolumeControl;
+        if (showVolumeControl) {
+            volumeControl.classList.remove('hidden');
+        } else {
+            volumeControl.classList.add('hidden');
+        }
+    });
+    
+    // 볼륨 슬라이더 이벤트
+    volumeSlider.addEventListener('input', (e) => {
+        const volume = e.target.value / 100;
+        bgm.volume = volume;
+        localStorage.setItem('bgm-volume', volume.toString());
+        localStorage.setItem('bgm-muted', volume === 0 ? 'true' : 'false');
+    });
+    
+    // BGM 재생 함수
+    function playBGM() {
+        bgm.play().then(() => {
+            isPlaying = true;
+            updateButtonState();
+        }).catch(error => {
+            console.log('오디오 재생 실패:', error);
+            // 사용자에게 친화적인 알림
+            showBGMNotification('브라우저 정책으로 인해 자동 재생이 제한됩니다. 버튼을 클릭해 음악을 재생해주세요.');
+        });
+    }
+    
+    // BGM 일시정지 함수
+    function pauseBGM() {
+        bgm.pause();
+        isPlaying = false;
+        updateButtonState();
+    }
+    
+    // 버튼 상태 업데이트
+    function updateButtonState() {
+        if (isPlaying) {
+            playIcon.classList.add('hidden');
+            pauseIcon.classList.remove('hidden');
+            toggleButton.title = '배경음악 정지 (우클릭: 볼륨 조절)';
+            toggleButton.classList.add('animate-pulse');
+        } else {
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+            toggleButton.title = '배경음악 재생 (우클릭: 볼륨 조절)';
+            toggleButton.classList.remove('animate-pulse');
+        }
+    }
+    
+    // BGM 알림 표시
+    function showBGMNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300';
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translate(-50%, -20px)';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+    
+    // 오디오 이벤트 리스너
+    bgm.addEventListener('play', () => {
+        isPlaying = true;
+        updateButtonState();
+    });
+    
+    bgm.addEventListener('pause', () => {
+        isPlaying = false;
+        updateButtonState();
+    });
+    
+    bgm.addEventListener('ended', () => {
+        isPlaying = false;
+        updateButtonState();
+    });
+    
+    // 페이지 가시성 변경 시 처리 (모바일 최적화)
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden && isPlaying) {
+            bgm.pause();
+        } else if (!document.hidden && isPlaying) {
+            bgm.play().catch(() => {
+                // 재생 실패 시 상태 업데이트
+                isPlaying = false;
+                updateButtonState();
+            });
+        }
+    });
+    
+    // 볼륨 컨트롤 외부 클릭 시 숨김
+    document.addEventListener('click', (e) => {
+        if (!volumeControl.contains(e.target) && e.target !== toggleButton) {
+            volumeControl.classList.add('hidden');
+            showVolumeControl = false;
+        }
+    });
+    
+    // 초기 버튼 상태 설정
+    updateButtonState();
+    
+    // 페이지 로드 후 3초 뒤에 자동 재생 시도 (사용자 경험 개선)
+    setTimeout(() => {
+        if (!savedMuted && bgm.volume > 0) {
+            playBGM();
+        }
+    }, 3000);
+}
+
 // 페이지 로드 시 초기화
 document.addEventListener('DOMContentLoaded', () => {
     // 모든 기능 초기화
@@ -256,6 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initImageLoading();
     initClubTabs();
+    initBGM(); // BGM 초기화 추가
 
     // Hero 섹션 즉시 표시
     const heroElements = document.querySelector('.hero-bg').querySelectorAll('.fade-in');
@@ -330,36 +487,42 @@ document.getElementById('aiVideoModal').addEventListener('click', function(e) {
     }
 });
 
-// 웹툰 모달 기능
-function openWebtoon() {
-    const modal = document.getElementById('webtoonModal');
+// 풍경 갤러리 모달 기능
+function openScenery() {
+    const modal = document.getElementById('sceneryModal');
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
+    
+    // 모바일에서 스크롤 최적화
+    const container = modal.querySelector('.overflow-y-auto');
+    if (container) {
+        container.style.webkitOverflowScrolling = 'touch';
+    }
 }
 
-function closeWebtoon() {
-    const modal = document.getElementById('webtoonModal');
+function closeScenery() {
+    const modal = document.getElementById('sceneryModal');
     modal.classList.add('hidden');
     document.body.style.overflow = 'auto';
 }
 
-// ESC 키로 웹툰 모달 닫기
+// ESC 키로 풍경 갤러리 모달 닫기
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeImageModal();
         closeVideoModal();
         closeAIVideoModal();
-        closeWebtoon();
+        closeScenery();
     }
 });
 
-// 웹툰 모달 배경 클릭으로 닫기
+// 풍경 갤러리 모달 배경 클릭으로 닫기
 document.addEventListener('DOMContentLoaded', function() {
-    const webtoonModal = document.getElementById('webtoonModal');
-    if (webtoonModal) {
-        webtoonModal.addEventListener('click', function(e) {
+    const sceneryModal = document.getElementById('sceneryModal');
+    if (sceneryModal) {
+        sceneryModal.addEventListener('click', function(e) {
             if (e.target === this) {
-                closeWebtoon();
+                closeScenery();
             }
         });
     }
