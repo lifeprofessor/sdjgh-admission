@@ -296,6 +296,28 @@ function initBGM() {
         }
     });
     
+    // 모바일에서 길게 누르기로 볼륨 컨트롤 표시
+    let longPressTimer;
+    toggleButton.addEventListener('touchstart', (e) => {
+        longPressTimer = setTimeout(() => {
+            e.preventDefault();
+            showVolumeControl = !showVolumeControl;
+            if (showVolumeControl) {
+                volumeControl.classList.remove('hidden');
+            } else {
+                volumeControl.classList.add('hidden');
+            }
+        }, 500); // 0.5초 길게 누르기
+    }, { passive: false });
+    
+    toggleButton.addEventListener('touchend', () => {
+        clearTimeout(longPressTimer);
+    });
+    
+    toggleButton.addEventListener('touchmove', () => {
+        clearTimeout(longPressTimer);
+    });
+    
     // 볼륨 슬라이더 이벤트
     volumeSlider.addEventListener('input', (e) => {
         const volume = e.target.value / 100;
@@ -306,14 +328,40 @@ function initBGM() {
     
     // BGM 재생 함수
     function playBGM() {
-        bgm.play().then(() => {
-            isPlaying = true;
-            updateButtonState();
-        }).catch(error => {
-            console.log('오디오 재생 실패:', error);
-            // 사용자에게 친화적인 알림
-            showBGMNotification('브라우저 정책으로 인해 자동 재생이 제한됩니다. 버튼을 클릭해 음악을 재생해주세요.');
-        });
+        // 볼륨이 0이면 재생하지 않음
+        if (bgm.volume === 0) {
+            showBGMNotification('볼륨이 0입니다. 볼륨을 조절해주세요.');
+            return;
+        }
+        
+        // 모바일에서 사용자 제스처 없이 재생 시도 방지
+        if (!userInteracted) {
+            showBGMNotification('페이지와 상호작용한 후 음악을 재생할 수 있습니다.');
+            return;
+        }
+        
+        const playPromise = bgm.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                isPlaying = true;
+                updateButtonState();
+                console.log('BGM 재생 시작');
+            }).catch(error => {
+                console.log('오디오 재생 실패:', error);
+                isPlaying = false;
+                updateButtonState();
+                
+                // 에러 타입에 따른 다른 메시지
+                if (error.name === 'NotAllowedError') {
+                    showBGMNotification('브라우저에서 자동 재생을 차단했습니다. 다시 시도해주세요.');
+                } else if (error.name === 'NotSupportedError') {
+                    showBGMNotification('이 브라우저에서는 해당 오디오 형식을 지원하지 않습니다.');
+                } else {
+                    showBGMNotification('음악 재생에 실패했습니다. 다시 시도해주세요.');
+                }
+            });
+        }
     }
     
     // BGM 일시정지 함수
@@ -374,14 +422,59 @@ function initBGM() {
     document.addEventListener('visibilitychange', () => {
         if (document.hidden && isPlaying) {
             bgm.pause();
-        } else if (!document.hidden && isPlaying) {
-            bgm.play().catch(() => {
-                // 재생 실패 시 상태 업데이트
-                isPlaying = false;
-                updateButtonState();
-            });
+        } else if (!document.hidden && isPlaying && userInteracted) {
+            // 모바일에서 백그라운드에서 돌아올 때 재생 재시도
+            setTimeout(() => {
+                if (isPlaying && !bgm.paused) return; // 이미 재생 중이면 스킵
+                bgm.play().catch(() => {
+                    // 재생 실패 시 상태 업데이트
+                    isPlaying = false;
+                    updateButtonState();
+                });
+            }, 100);
         }
     });
+    
+    // 모바일 터치 이벤트 최적화
+    let touchStarted = false;
+    document.addEventListener('touchstart', () => {
+        touchStarted = true;
+    }, { passive: true });
+    
+    document.addEventListener('touchend', () => {
+        if (touchStarted) {
+            touchStarted = false;
+            // 터치 종료 후 오디오 컨텍스트 활성화
+            if (bgm.paused && isPlaying && userInteracted) {
+                bgm.play().catch(() => {
+                    console.log('터치 후 재생 실패');
+                });
+            }
+        }
+    }, { passive: true });
+    
+    // iOS Safari 특별 처리
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+    
+    if (isIOS || isSafari) {
+        // iOS에서는 사용자 제스처 후에만 오디오 재생 가능
+        bgm.addEventListener('loadstart', () => {
+            bgm.load(); // iOS에서 오디오 파일 미리 로드
+        });
+        
+        // iOS에서 오디오 컨텍스트 재개
+        const resumeAudioContext = () => {
+            if (bgm.paused && isPlaying && userInteracted) {
+                bgm.play().catch(error => {
+                    console.log('iOS 오디오 재생 실패:', error);
+                });
+            }
+        };
+        
+        document.addEventListener('touchstart', resumeAudioContext, { once: true, passive: true });
+        document.addEventListener('click', resumeAudioContext, { once: true });
+    }
     
     // 볼륨 컨트롤 외부 클릭 시 숨김
     document.addEventListener('click', (e) => {
@@ -394,12 +487,85 @@ function initBGM() {
     // 초기 버튼 상태 설정
     updateButtonState();
     
-    // 페이지 로드 후 3초 뒤에 자동 재생 시도 (사용자 경험 개선)
-    setTimeout(() => {
-        if (!savedMuted && bgm.volume > 0) {
-            playBGM();
+    // 모바일 BGM 안내 메시지 자동 숨김 (15초 후)
+    const mobileGuide = document.getElementById('mobile-bgm-guide');
+    if (mobileGuide) {
+        setTimeout(() => {
+            mobileGuide.style.opacity = '0';
+            mobileGuide.style.transform = 'translateY(-20px)';
+            setTimeout(() => {
+                mobileGuide.style.display = 'none';
+            }, 500);
+        }, 15000);
+        
+        // BGM 재생 시작하면 즉시 숨김
+        bgm.addEventListener('play', () => {
+            if (mobileGuide && mobileGuide.style.display !== 'none') {
+                mobileGuide.style.opacity = '0';
+                mobileGuide.style.transform = 'translateY(-20px)';
+                setTimeout(() => {
+                    mobileGuide.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+    
+    // 사용자 상호작용 감지를 위한 이벤트 리스너
+    let userInteracted = false;
+    const enableAudioContext = () => {
+        if (!userInteracted) {
+            userInteracted = true;
+            // 사용자가 상호작용한 후 BGM 시작 가능 상태로 설정
+            if (!savedMuted && bgm.volume > 0) {
+                showBGMStartNotification();
+            }
+            // 이벤트 리스너 제거 (한 번만 실행)
+            document.removeEventListener('click', enableAudioContext);
+            document.removeEventListener('touchstart', enableAudioContext);
+            document.removeEventListener('keydown', enableAudioContext);
         }
-    }, 3000);
+    };
+    
+    // 사용자 상호작용 감지
+    document.addEventListener('click', enableAudioContext);
+    document.addEventListener('touchstart', enableAudioContext);
+    document.addEventListener('keydown', enableAudioContext);
+    
+    // BGM 시작 안내 알림 표시
+    function showBGMStartNotification() {
+        const notification = document.createElement('div');
+        notification.className = 'fixed top-4 right-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-3 rounded-lg shadow-lg z-50 transition-all duration-300 max-w-sm';
+        notification.innerHTML = `
+            <div class="flex items-center space-x-3">
+                <svg class="w-5 h-5 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.816L4.846 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.846l3.537-3.816a1 1 0 011.617.816zM16 8a2 2 0 11-4 0 2 2 0 014 0z" clip-rule="evenodd"></path>
+                </svg>
+                <div class="flex-1">
+                    <p class="text-sm font-medium">🎵 BGM을 시작하시겠어요?</p>
+                    <p class="text-xs opacity-90">우측 상단 버튼을 클릭하세요</p>
+                </div>
+                <button onclick="this.parentElement.parentElement.remove()" class="text-white/80 hover:text-white">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        `;
+        document.body.appendChild(notification);
+        
+        // 10초 후 자동으로 사라짐
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }
+        }, 10000);
+    }
 }
 
 // 페이지 로드 시 초기화

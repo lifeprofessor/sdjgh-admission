@@ -53,7 +53,7 @@
 
     <!-- BGM Control Button -->
     <button id="bgm-toggle" class="fixed top-20 right-4 z-50 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 backdrop-blur-sm border border-white/20" 
-            title="배경음악 재생/정지">
+            title="배경음악 재생/정지 (우클릭: 볼륨 조절)">
         <svg id="play-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
         </svg>
@@ -61,6 +61,26 @@
             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
         </svg>
     </button>
+    
+    <!-- 모바일용 BGM 시작 안내 (초기에만 표시) -->
+    <div id="mobile-bgm-guide" class="fixed top-4 left-4 right-20 z-40 bg-gradient-to-r from-purple-600/90 to-pink-600/90 backdrop-blur-sm text-white p-3 rounded-lg shadow-lg transition-all duration-500 md:hidden">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <svg class="w-5 h-5 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.816L4.846 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.846l3.537-3.816a1 1 0 011.617.816zM16 8a2 2 0 11-4 0 2 2 0 014 0z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                    <p class="text-xs font-semibold">🎵 BGM 시작</p>
+                    <p class="text-xs opacity-90">우측 버튼 클릭 →</p>
+                </div>
+            </div>
+            <button onclick="document.getElementById('mobile-bgm-guide').style.display='none'" class="text-white/80 hover:text-white p-1 ml-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
 
     <!-- BGM Volume Control (숨겨진 상태) -->
     <div id="volume-control" class="fixed top-36 right-4 z-50 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg border border-purple-200 hidden">
